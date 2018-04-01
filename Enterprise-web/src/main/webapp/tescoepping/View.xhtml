@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTescoeppingTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTescoeppingLabel_tescoId}"/>
+                    <h:outputText value="#{tescoeppingController.selected.tescoId}" title="#{bundle.ViewTescoeppingTitle_tescoId}"/>
+                    <h:outputText value="#{bundle.ViewTescoeppingLabel_tescoName}"/>
+                    <h:outputText value="#{tescoeppingController.selected.tescoName}" title="#{bundle.ViewTescoeppingTitle_tescoName}"/>
+                    <h:outputText value="#{bundle.ViewTescoeppingLabel_tescoBranch}"/>
+                    <h:outputText value="#{tescoeppingController.selected.tescoBranch}" title="#{bundle.ViewTescoeppingTitle_tescoBranch}"/>
+                    <h:outputText value="#{bundle.ViewTescoeppingLabel_tescoLoc}"/>
+                    <h:outputText value="#{tescoeppingController.selected.tescoLoc}" title="#{bundle.ViewTescoeppingTitle_tescoLoc}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tescoeppingController.destroyAndView}" value="#{bundle.ViewTescoeppingDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTescoeppingEditLink}"/>
+                <br />
+                <h:commandLink action="#{tescoeppingController.prepareCreate}" value="#{bundle.ViewTescoeppingCreateLink}" />
+                <br />
+                <h:commandLink action="#{tescoeppingController.prepareList}" value="#{bundle.ViewTescoeppingShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTescoeppingIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
